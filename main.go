@@ -19,6 +19,7 @@ func main() {
 	)
 	envMegabytes, envMegabytesDefined := os.LookupEnv("MEGABYTES")
 	envIntervalSeconds, envIntervalSecondsDefined := os.LookupEnv("INTERVAL_SECONDS")
+	//envTerminate, envTerminateDefined := os.LookupEnv("TERMINATE_ON_COMPLETION")
 
 	if envMegabytesDefined == true {
 		megabytes, _ = strconv.Atoi(envMegabytes)
@@ -41,5 +42,11 @@ func main() {
 		fmt.Println(i)
 		time.Sleep(time.Duration(intervalSeconds) * time.Second)
 	}
-	fmt.Println("Done")
+	fmt.Println("Loop done")
+
+	for {
+		fmt.Println("Just waiting...")
+		time.Sleep(time.Duration(1) * time.Second)
+	}
+
 }
